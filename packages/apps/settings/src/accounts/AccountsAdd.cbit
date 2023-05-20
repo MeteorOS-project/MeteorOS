@@ -1,0 +1,58 @@
+# METEOROS IMPORTS
+import meteoros.gui;
+import meteoros.input;
+import meteoros.pagemanager;
+import meteoros.accountmanager;
+# OTHER IMPORTS
+import "AccountsMain.cbit";
+import "AccountsManager.cbit";
+
+#meteoros.text("EXAMPLE TEXT", size);
+#meteoros.button("EXAMPLE TEXT", size, imagesrc, programming);
+#meteoros.popup("EXAMPLE TEXT", size_width, size_height, go_text, back_text, input)
+
+class AccountsAdd() {
+
+	subclass guiPage(){
+		String addAccount = "Add Account";
+		meteoros.header(addAccount, 25)
+		meteoros.subtext("Accounts are to manage your personal files and data. Add some here.", 11);
+		
+		#Accounts
+		meteoros.button("Add Account", 11, button.png, addAccount());
+	}
+
+	subclass addAccount(){
+
+		enum accountTypes(){
+			home,
+			regular,
+			developer
+		}
+		
+		meteoros.inputbox accountName;
+		meteoros.inputbox accountEmail;
+		meteoros.inputbox accountType;
+
+		# Account types: 1. Home 2. Regular 3. Developer
+		
+		if(meteoros.button == meteoros.click){
+			meteoros.popupstart("Start Account setup", 200, 150, "Begin", null, null);
+			meteoros.popupnext("Add Account name: ", 200, 150, "Submit", "Back", accountName);
+			meteoros.popupnext("Add Account email: ", 200, 150, "Submit", "Back", accountEmail); #Send account email later
+			meteoros.popupnext("Add Account type (Home, regular, developer): ", 200, 150, "End!", "Back", accountType);
+			meteoros.popupend("Finished! We have sent you\nan Email to verify", 300, 250, null, null, null);
+			meteoros.popupsave(accountName, accountEmail, accountType, "account.json", meteoros.newfile("account" + accountName + ".json"));
+		}
+	}
+	
+	# Verify email account here
+	subclass sendVerifyEmail(){
+		# Do nothing right now
+	}
+	
+	# Account manager: Add Account
+	subclass accountManagerAdd(){
+		meteoros.addaccount(accountName, accountEmail, accountType);
+	}
+}

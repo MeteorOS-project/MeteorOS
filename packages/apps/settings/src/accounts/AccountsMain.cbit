@@ -1,0 +1,13 @@
+import "AccountsAdd.cbit";
+import "AccountsManager.cbit";
+import meteoros.pagemanager;
+
+class AccountsMain() {
+	
+	String pageAccounts = "Accounts";
+	
+	meteoros.addPage(pageAccounts);
+	meteoros.addPageSubsection(AccountsAdd.guiPage);
+	meteoros.addPageSubsection(AccountsManager.guiPage);
+	
+}

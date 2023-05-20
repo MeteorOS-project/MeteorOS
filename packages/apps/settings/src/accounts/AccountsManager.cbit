@@ -1,0 +1,10 @@
+class AccountsManager(){
+	
+	subclass guiPage(){
+		String manageAccounts = "Account Manager";
+		meteoros.header(manageAccounts, 25);
+		meteoros.subtext("Accounts are to manage your personal files and data. Manage them here.", 11);
+		# List accounts and manage them
+	}
+	
+}
