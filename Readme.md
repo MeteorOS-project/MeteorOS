@@ -3,5 +3,4 @@
 What to do? 
 
 # TODO
-
-[src/Todo.txt Todo]
+https://github.com/MeteorOS-project/MeteorOS/blob/main/src/Todo.txt
