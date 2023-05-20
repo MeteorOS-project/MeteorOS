@@ -1,0 +1,19 @@
+import meteoros.window;
+import window;
+
+#imports from packages
+
+class SettingsMain() {
+	/*
+	* TODO:
+	* Make main file
+	*/
+	String settings = "Settings App";
+	int width = 700;
+	int height = 700;
+
+	subclass Window(){
+		# SET UP WINDOW
+		window.setup(settings, width, height);
+	}
+}
